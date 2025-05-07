@@ -1,25 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 export default function SearchForm({ searchQuery, setSearchQuery }) {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('All categories');
-
-  const categories = ['All categories', 'Mockups', 'Templates', 'Design', 'Logos'];
-
-  const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
-    setDropdownOpen(false);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Search:', searchQuery, 'Category:', selectedCategory);
-    // Optional: You can handle category filtering here too
-  };
 
   return (
     <form
-      onSubmit={handleSubmit}
       className="mx-auto mt-7 relative bg-white min-w-sm max-w-2xl flex items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-lg focus-within:border-gray-300 z-10"
     >
 

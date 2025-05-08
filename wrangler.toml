@@ -1,0 +1,6 @@
+name = "mcpserverworld"
+compatibility_date = "2025-05-08"
+
+[site]
+bucket = "./build"
+entry-point = "workers-site"

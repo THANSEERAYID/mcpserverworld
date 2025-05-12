@@ -17,7 +17,8 @@ const MCPServerCard = ({ img, title, description, price, rating, id, tags, githu
   };
 
   return (
-    <a href={github} className="relative flex flex-col w-full max-w-[360px] h-[190px] bg-white overflow-hidden rounded-md transform transition-transform duration-300 hover:scale-102 hover:shadow-[0_0_20px_rgba(177,156,217,0.2)] border">
+    <a href={github} target="_blank"
+    rel="noopener noreferrer" className="relative flex flex-col w-full max-w-[360px] h-[190px] bg-white overflow-hidden rounded-md transform transition-transform duration-300 hover:scale-102 hover:shadow-[0_0_20px_rgba(177,156,217,0.2)] border">
       {/* Index Badge (top-right) */}
       <span className="absolute top-2 right-2 border border-indigo-600 text-indigo-600 text-[10px] rounded-full px-2 py-0.5 shadow">
         #{id}

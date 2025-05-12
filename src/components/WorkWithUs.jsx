@@ -1,8 +1,47 @@
 import moonkeylabs from '../Images/moonkeylabs.jpg'
 import StatsSection from './CountUp/CountUp';
-
+import { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 export default function WorkWithUs() {
+
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+
+  // Simple email validation regex (standard)
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const handleSubmit = (e) => {
+
+    e.preventDefault();
+
+    // Validate email before sending
+    if (!validateEmail(email)) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    setError('');  // Clear error if valid
+
+    const templateParams = {
+      user_email: email,
+    };
+
+    emailjs.send('service_lltw9ut', 'template_mhwcg8g', templateParams, 'kULjis0QACWKagzrO')
+      .then((response) => {
+        alert('Email sent! We added you to the waitlist.');
+        setEmail('');
+      })
+      .catch((err) => {
+        console.error('Failed to send:', err);
+        alert('Something went wrong. Please try again.');
+      });
+  };
+  
+
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 min-h-screen flex items-center">
       {/* Background image */}
@@ -52,14 +91,16 @@ export default function WorkWithUs() {
             </p>
 
             <div className="my-6 sm:my-10 max-w-sm md:max-w-lg mx-auto">
-              <form className="flex flex-col gap-4 sm:flex-row">
+              <form className="flex flex-col gap-4 sm:flex-row" onSubmit={handleSubmit}>
                 <label htmlFor="email-address" className="sr-only">
                   Email address
                 </label>
                 <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   id="email-address"
                   name="email"
-                  type="email"
                   required
                   placeholder="Enter your email"
                   autoComplete="email"
@@ -67,10 +108,12 @@ export default function WorkWithUs() {
                 />
                 <button
                   type="submit"
+                  
                   className="w-full sm:w-auto rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm md:text-base md:px-5 md:py-3 font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
                 >
                   Subscribe
                 </button>
+                {error && <p style={{ color: 'red', marginTop: '5px' }}>{error}</p>}
               </form>
             </div>
 

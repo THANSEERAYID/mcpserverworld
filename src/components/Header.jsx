@@ -51,7 +51,7 @@ export default function Header() {
                 Explore Servers
               </a>
               <a href="/marketplace" className="text-sm font-semibold leading-6 text-gray-900">
-                Learn More <span aria-hidden="true">→</span>
+                Moonkey Labs <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

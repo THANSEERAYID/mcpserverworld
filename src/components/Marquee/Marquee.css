@@ -6,7 +6,7 @@
 .marquee-content {
   display: flex;
   width: max-content; /* Important */
-  animation: marquee 20s linear infinite;
+  animation: marquee 33s linear infinite;
 }
 
 @keyframes marquee {

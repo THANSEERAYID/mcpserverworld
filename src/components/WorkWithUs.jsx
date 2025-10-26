@@ -87,7 +87,8 @@ export default function WorkWithUs() {
               Get Early Access
             </h2>
             <p className="mt-6 text-md md:text-xl leading-8 text-gray-300">
-              At MoonkeyLabs, we experiment with AI to deliver innovative solutions that drive success for businesses.
+              {/* At MoonkeyLabs, we experiment with AI to deliver innovative solutions that drive success for businesses. */}
+              Access the AI Agent. At MoonkeyLabs, we play with AI to cook up bold ideas that could change people's lives forever.
             </p>
 
             <div className="my-6 sm:my-10 max-w-sm md:max-w-lg mx-auto">
